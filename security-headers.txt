@@ -1,0 +1,10 @@
+Recommended production HTTP security headers:
+
+Content-Security-Policy: default-src 'self'; style-src 'self'; script-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests
+Referrer-Policy: strict-origin-when-cross-origin
+X-Content-Type-Options: nosniff
+X-Frame-Options: DENY
+Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=()
+Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
+
+For a static site, configure these at your hosting/CDN layer. The meta CSP in index.html is an additional defense, not a replacement for HTTP headers.
